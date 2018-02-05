@@ -1,0 +1,12 @@
+.sign-in-container {
+    width: 350px;
+    margin: 2rem auto 0 auto;
+}
+
+.sign-in-label {
+    text-align: right;
+}
+
+form {
+    margin: 1rem .5rem 0 .5rem;
+}
