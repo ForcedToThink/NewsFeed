@@ -1,0 +1,19 @@
+footer.page-footer {
+    margin-top: 20px;
+    color: #fff;
+    font-size: .9rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+}
+
+footer.page-footer .footer-copyright {
+    color: rgba(255, 255, 255, .6);
+    background-color: rgba(0, 0, 0, .2);
+    height: 50px;
+    text-align: center;
+    overflow: hidden;
+    line-height: 50px;
+}
+
+footer.page-footer span {
+    color: #fff;
+}
