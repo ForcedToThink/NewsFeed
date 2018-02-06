@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ShowAuthedDirective
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -18,7 +21,8 @@ import { HttpModule } from '@angular/http';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    ShowAuthedDirective
   ],
   providers: [],
 })

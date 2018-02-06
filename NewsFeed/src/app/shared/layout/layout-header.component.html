@@ -9,9 +9,24 @@
                 </li>
             </ul>
 
-            <ul class="app-navbar-nav pull-xs-right">
+            <ul class="app-navbar-nav pull-xs-right" *appShowAuthed="false">
                 <li class="app-nav-item">
                     <a class="app-nav-link" routerLink="auth">Sign in</a>
+                </li>
+            </ul>
+
+            <ul class="app-navbar-nav pull-xs-right" *appShowAuthed="true">
+                <li class="app-nav-item">
+                    <a class="app-nav-link">New Article</a>
+                </li>
+                <li class="app-nav-item">
+                    <a class="app-nav-link" routerLink="settings">Settings</a>
+                </li>
+                <li class="app-nav-item">
+                    <a class="app-nav-link">My Profile</a>
+                </li>
+                <li class="app-nav-item">
+                    <a class="app-nav-link">Sign out</a>
                 </li>
             </ul>
         </div>

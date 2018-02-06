@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule, UserService, ApiService } from '../shared';
+import { SharedModule } from '../shared/shared.module';
 import { Http } from '@angular/http';
-import { ErrorsListComponent } from '../shared';
+import { ErrorsListComponent } from '../shared/errors-list.component';
 
 const authRouting: ModuleWithProviders = RouterModule.forChild([
   {

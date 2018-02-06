@@ -9,11 +9,13 @@ import {
   LayoutHeaderComponent,
   LayoutFooterComponent,
   ApiService,
-  UserService
+  UserService,
+  AuthGuard
 } from './shared';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { SettingsModule } from './settings/settings.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -29,11 +31,13 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SharedModule,
     rootRouting,
     HomeModule,
-    AuthModule
+    AuthModule,
+    SettingsModule
   ],
   providers: [
     ApiService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

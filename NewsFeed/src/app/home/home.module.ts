@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeComponent } from './home.component';
+import { SharedModule } from '../shared';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -19,7 +20,8 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     CommonModule,
     homeRouting,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   exports: [],
   providers: [],

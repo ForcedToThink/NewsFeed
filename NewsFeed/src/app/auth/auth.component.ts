@@ -8,8 +8,7 @@ import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css'],
-  providers: [UserService]
+  styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
   formGroup: FormGroup;
