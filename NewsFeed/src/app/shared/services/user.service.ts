@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { SessionService } from './session.service';
 
 @Injectable()
 export class UserService {
@@ -16,12 +17,26 @@ export class UserService {
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private sessionService: SessionService
   ) {}
 
   private setAuth(user: User) {
+    this.sessionService.saveToken(user.token);
     this.currentUserSubject.next(user);
     this.isAuthenticatedSubject.next(true);
+  }
+
+  public populate() {
+    if (this.sessionService.getToken()) {
+      this.api.get('/user')
+        .subscribe(
+          (data) => this.setAuth(data.user),
+          (err) => this.purgeAuth()
+        );
+    } else {
+      this.purgeAuth();
+    }
   }
 
   public authenticate(type: string, credentials: Object): Observable<User> {
@@ -37,5 +52,11 @@ export class UserService {
 
   public getCurrentUser(): User {
     return this.currentUserSubject.value;
+  }
+
+  public purgeAuth() {
+    this.sessionService.destroyToken();
+    this.currentUserSubject.next(new User);
+    this.isAuthenticatedSubject.next(false);
   }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout-header',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-header.component.css']
 })
 export class LayoutHeaderComponent {
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
 
+  public logout(event) {
+    this.userService.purgeAuth();
+    this.router.navigateByUrl('/');
+  }
 }

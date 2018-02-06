@@ -10,7 +10,8 @@ import {
   LayoutFooterComponent,
   ApiService,
   UserService,
-  AuthGuard
+  AuthGuard,
+  SessionService
 } from './shared';
 
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   providers: [
     ApiService,
     UserService,
-    AuthGuard
+    AuthGuard,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })
