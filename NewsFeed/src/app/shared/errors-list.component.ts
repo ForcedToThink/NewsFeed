@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Errors } from '../shared';
+import { Errors } from '../shared/models';
 
 @Component({
   selector: 'app-errors',
