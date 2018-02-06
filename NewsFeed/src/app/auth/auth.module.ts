@@ -2,8 +2,10 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
-import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule, UserService, ApiService } from '../shared';
+import { Http } from '@angular/http';
+import { ErrorsListComponent } from '../shared';
 
 const authRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -14,13 +16,14 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
 
 @NgModule({
   declarations: [
-    AuthComponent
+    AuthComponent,
+    ErrorsListComponent
   ],
   imports: [
     CommonModule,
     authRouting,
-    FormsModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   exports: [],
   providers: [],

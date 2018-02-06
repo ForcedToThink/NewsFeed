@@ -1,0 +1,7 @@
+<div *ngIf="errorList.length > 0" style="padding-top: 1rem;">
+    <ngb-alert type="danger" [dismissible]="false">
+        <ul>
+            <li *ngFor="let error of errorList">{{error}}</li>
+        </ul>
+    </ngb-alert>
+</div>
