@@ -8,15 +8,19 @@ import {
   SharedModule,
   LayoutHeaderComponent,
   LayoutFooterComponent,
+  HeaderNavAuthenticatedComponent,
+  HeaderNavPublicComponent,
   ApiService,
   UserService,
   AuthGuard,
-  SessionService
+  SessionService,
+  ProfileService
 } from './shared';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { SettingsModule } from './settings/settings.module';
+import { ProfileModule } from './profile/profile.module';
 import { APP_INITIALIZER } from '@angular/core';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([{
@@ -33,7 +37,9 @@ function populateService(userService: UserService) {
   declarations: [
     AppComponent,
     LayoutHeaderComponent,
-    LayoutFooterComponent
+    LayoutFooterComponent,
+    HeaderNavAuthenticatedComponent,
+    HeaderNavPublicComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,8 @@ function populateService(userService: UserService) {
     rootRouting,
     HomeModule,
     AuthModule,
-    SettingsModule
+    SettingsModule,
+    ProfileModule
   ],
   providers: [
     ApiService,
@@ -54,7 +61,8 @@ function populateService(userService: UserService) {
       useFactory: populateService,
       deps: [UserService],
       multi: true
-    }
+    },
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

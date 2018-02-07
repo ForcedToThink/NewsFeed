@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models';
 import { UserService } from '../services';
 import { Router } from '@angular/router';
-import { User } from '../models';
 
 @Component({
-  selector: 'app-layout-header',
-  templateUrl: './layout-header.component.html'
+  selector: 'app-header-nav-authenticated',
+  templateUrl: './header-nav-authenticated.component.html'
 })
-export class LayoutHeaderComponent implements OnInit {
+export class HeaderNavAuthenticatedComponent implements OnInit {
   currentUser: User;
 
   constructor(

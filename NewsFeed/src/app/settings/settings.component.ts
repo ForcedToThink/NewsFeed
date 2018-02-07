@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/services';
 import { User } from '../shared/models';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-settings',
@@ -14,7 +15,8 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.formGroup = this.formBuilder.group({
       'username': '',
@@ -33,7 +35,7 @@ export class SettingsComponent implements OnInit {
   public submitForm(user: User) {
     this.setFormsDisabled(true);
     this.userService.update(user).subscribe(
-      (data) => this.setFormsDisabled(false),
+      (data) => this.router.navigateByUrl(`/profile/${data.username}`),
       (error) => this.setFormsDisabled(false)
     );
   }

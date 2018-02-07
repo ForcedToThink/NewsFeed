@@ -1,0 +1,11 @@
+<section>
+    <div class="banner light">
+        <img [src]="profile.image" class="user-img" />
+        <h2>{{profile.username}}</h2>
+        <span class="bio">{{profile.bio}}</span>
+        <div class="action-panel">
+            <a class="btn btn-sm btn-outline-primary" [routerLink]="['/settings']" [hidden]="!isUser">Edit profile settings</a>
+            <button class="btn btn-sm btn-outline-primary" [hidden]="isUser" [disabled]="isSubmitting" (click)="followUser($event)">{{getFollowButtonLabel()}}</button>
+        </div>
+    </div>
+</section>

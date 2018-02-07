@@ -1,0 +1,22 @@
+<div class="app-navbar-row">
+    <ul class="app-navbar-nav mr-auto">
+        <li class="app-nav-item">
+            <a class="app-nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="app-nav-item">
+            <a class="app-nav-link">New Article</a>
+        </li>
+        <li class="app-nav-item">
+            <a class="app-nav-link" routerLink="settings">Settings</a>
+        </li>
+        <li class="app-nav-item">
+            <a class="app-nav-link" [routerLink]="['/profile', currentUser.username]">My Profile</a>
+        </li>
+    </ul>
+
+    <ul class="app-navbar-nav pull-xs-right">
+        <li class="app-nav-item">
+            <a class="app-nav-link" (click)="logout($event)"><span class="glyphicon glyphicon-off"></span>Sign out</a>
+        </li>
+    </ul>
+</div>

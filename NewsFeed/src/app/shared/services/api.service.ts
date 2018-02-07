@@ -45,7 +45,6 @@ export class ApiService {
   }
 
   public get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
-
     const methodUrl = `${api_url}${path}`;
     const headers = { headers: this.setHeaders(), search: params };
 
@@ -60,6 +59,15 @@ export class ApiService {
     const headers = { headers: this.setHeaders() };
 
     return this.http.put(methodUrl, bodyString, headers)
+      .catch(this.formatError)
+      .map((res: Response) => res.json());
+  }
+
+  public delete(path: string) {
+    const methodUrl = `${api_url}${path}`;
+    const headers = { headers: this.setHeaders() };
+
+    return this.http.delete(methodUrl, headers)
       .catch(this.formatError)
       .map((res: Response) => res.json());
   }
