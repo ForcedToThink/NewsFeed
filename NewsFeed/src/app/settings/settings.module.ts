@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { SettingsComponent } from './settings.component';
 
@@ -15,7 +16,8 @@ const settingsRouting: ModuleWithProviders = RouterModule.forChild([{
   imports: [
     CommonModule,
     SharedModule,
-    settingsRouting
+    settingsRouting,
+    FormsModule
   ],
   exports: [],
   providers: [],

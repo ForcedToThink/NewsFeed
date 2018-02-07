@@ -50,6 +50,14 @@ export class UserService {
       });
   }
 
+  public update(user: User): Observable<User> {
+    return this.api.put('/user', {user})
+      .map(data => {
+        this.currentUserSubject.next(data.user);
+        return data.user;
+      });
+  }
+
   public getCurrentUser(): User {
     return this.currentUserSubject.value;
   }

@@ -53,4 +53,14 @@ export class ApiService {
       .catch(this.formatError)
       .map((res: Response) => res.json());
   }
+
+  public put(path: string, body: Object = {}): Observable<any> {
+    const methodUrl = `${api_url}${path}`;
+    const bodyString = JSON.stringify(body);
+    const headers = { headers: this.setHeaders() };
+
+    return this.http.put(methodUrl, bodyString, headers)
+      .catch(this.formatError)
+      .map((res: Response) => res.json());
+  }
 }
