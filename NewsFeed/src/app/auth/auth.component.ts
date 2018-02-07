@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../shared';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User, Errors } from '../shared';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,18 +10,24 @@ import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   formGroup: FormGroup;
   errors: Errors = new Errors();
   isSubmitting = false;
   private submitType = 'login';
+  private returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.initFormGroups();
+  }
+
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params) => this.setReturnUrl(params));
   }
 
   public submitForm() {
@@ -32,7 +38,7 @@ export class AuthComponent {
 
     this.userService.authenticate(this.submitType, credentials)
       .subscribe(
-        (data) => this.router.navigateByUrl('/'),
+        (data) => this.router.navigateByUrl(this.returnUrl),
         (error) => {
           this.errors = error;
           this.setFormsDisabled(false);
@@ -56,6 +62,10 @@ export class AuthComponent {
     if (tabId === 'signUpTab') {
       this.formGroup.addControl('username', new FormControl(''));
     }
+  }
+
+  private setReturnUrl(params: Params): void {
+    this.returnUrl = params['returnUrl'] ? params['returnUrl'] : '/';
   }
 
   private setFormsDisabled(disabled: boolean) {

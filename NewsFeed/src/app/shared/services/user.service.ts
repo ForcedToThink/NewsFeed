@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { SessionService } from './session.service';
 
 @Injectable()
@@ -27,16 +29,20 @@ export class UserService {
     this.isAuthenticatedSubject.next(true);
   }
 
-  public populate() {
+  public populate(): Promise<any> {
     if (this.sessionService.getToken()) {
-      this.api.get('/user')
-        .subscribe(
-          (data) => this.setAuth(data.user),
-          (err) => this.purgeAuth()
-        );
+      return this.api.get('/user').toPromise()
+        .then((data) => {
+          this.setAuth(data.user);
+        })
+        .catch((err) => {
+          this.purgeAuth();
+        });
     } else {
       this.purgeAuth();
     }
+
+    return new Promise((resolve, reject) => { resolve(); });
   }
 
   public authenticate(type: string, credentials: Object): Observable<User> {

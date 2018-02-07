@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userService.populate();
     for (const route of this.router.config) {
       if (route.path !== 'auth' && route.path !== '') {
         if (route.canActivate) {

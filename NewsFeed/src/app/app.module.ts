@@ -17,8 +17,17 @@ import {
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { SettingsModule } from './settings/settings.module';
+import { APP_INITIALIZER } from '@angular/core';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([{
+  path: '**',
+  redirectTo: '',
+  pathMatch: 'full'
+}], { useHash: true });
+
+function populateService(userService: UserService) {
+  return () => userService.populate();
+}
 
 @NgModule({
   declarations: [
@@ -39,7 +48,13 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ApiService,
     UserService,
     AuthGuard,
-    SessionService
+    SessionService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: populateService,
+      deps: [UserService],
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
