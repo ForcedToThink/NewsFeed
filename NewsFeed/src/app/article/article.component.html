@@ -1,0 +1,33 @@
+<section>
+    <div class="banner light">
+        <h2>{{article.title}}</h2>
+        <div class="action-panel left article-meta">
+            <a [routerLink]="['/profile', article.author.username]">
+                <img [src]="article.author.image">
+            </a>
+            <div class="info">
+                <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
+                <span class="date">{{article.createdAt | date:'longDate'}}</span>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()">Edit article</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()">Delete article</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="article-body">
+            <markdown>{{article.body}}</markdown>
+            <span class="tag tag-pill tag-default" *ngFor="let t of article.tagList">{{t}}</span>
+        </div>
+        <div class="action-panel center article-meta">
+            <a [routerLink]="['/profile', article.author.username]">
+                <img [src]="article.author.image">
+            </a>
+            <div class="info">
+                <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
+                <span class="date">{{article.createdAt | date:'longDate'}}</span>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()">Edit article</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()">Delete article</button>
+        </div>
+    </div>
+</section>

@@ -14,14 +14,18 @@ import {
   UserService,
   AuthGuard,
   SessionService,
-  ProfileService
+  ProfileService,
+  ArticleService
 } from './shared';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { SettingsModule } from './settings/settings.module';
 import { ProfileModule } from './profile/profile.module';
+import { EditorModule } from './editor/editor.module';
+import { ArticleModule } from './article/article.module';
 import { APP_INITIALIZER } from '@angular/core';
+import { MarkdownModule } from 'angular2-markdown';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([{
   path: '**',
@@ -49,7 +53,10 @@ function populateService(userService: UserService) {
     HomeModule,
     AuthModule,
     SettingsModule,
-    ProfileModule
+    ProfileModule,
+    EditorModule,
+    ArticleModule,
+    MarkdownModule.forRoot()
   ],
   providers: [
     ApiService,
@@ -62,7 +69,8 @@ function populateService(userService: UserService) {
       deps: [UserService],
       multi: true
     },
-    ProfileService
+    ProfileService,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })

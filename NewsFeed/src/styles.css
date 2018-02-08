@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+    position: relative;
+    padding-bottom: 100px;
+    min-height: 100vh;
+}
+
 .app-navbar {
     display: flex;
     padding: 0.5rem 1rem;
@@ -92,7 +98,18 @@ div.banner.light {
 
 div.banner>div.action-panel {
     padding: 2rem 2rem 0 2rem;
+}
+
+div.action-panel.right {
     text-align: right;
+}
+
+div.action-panel.left {
+    text-align: left;
+}
+
+div.action-panel.center {
+    text-align: center;
 }
 
 div.content {
@@ -109,4 +126,74 @@ div.content {
     height: 100px;
     border-radius: 100px;
     margin-bottom: 1rem;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+form.narrow {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tag {
+    color: #fff !important;
+    font-size: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    white-space: nowrap;
+    margin-right: 3px;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.tag-default {
+    background-color: #818a91;
+}
+
+.tag-pill {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.tag-button {
+    padding-right: .35rem;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.article-meta img {
+    width: 32px;
+    height: 32px;
+    border-radius: 30px;
+}
+
+.article-meta .info {
+    display: inline-block;
+    line-height: 1rem;
+    vertical-align: middle;
+    margin: 0 1.5rem 0 .3rem;
+}
+
+.article-meta .author {
+    display: block;
+    color: inherit;
+    font-weight: 500 !important;
+    text-align: left;
+}
+
+.article-meta .date {
+    font-size: .8rem;
+}
+
+.article-body {
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 0 1rem 1rem 1rem;
+    margin-bottom: 1.5rem;
 }
