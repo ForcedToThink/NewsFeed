@@ -12,8 +12,19 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="!preview">
                 <textarea class="form-control" formControlName="body" name="body" rows="8" placeholder="Write your article"></textarea>
+                <div style="text-align: right">
+                    <button class="btn btn-xs btn-outline-secondary article-preview-button" (click)="setPreview()">Preview</button>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="preview">
+                <div class="article-preview">
+                    <markdown>{{article.body}}</markdown>
+                </div>
+                <div style="text-align: right">
+                    <button class="btn btn-xs btn-outline-secondary article-preview-button" (click)="setPreview()">Edit</button>
+                </div>
             </div>
         </div>
         <div class="form-group row">

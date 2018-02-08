@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    MarkdownModule
   ],
   exports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    MarkdownModule
   ],
   providers: [],
 })

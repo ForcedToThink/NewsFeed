@@ -14,6 +14,7 @@ export class EditorComponent implements OnInit {
   article: Article;
   tagField: FormControl;
   isSubmitting = false;
+  preview = false;
 
   constructor (
     private formBuilder: FormBuilder,
@@ -57,6 +58,15 @@ export class EditorComponent implements OnInit {
 
   public removeTag(tag: string): void {
     this.article.tagList = this.article.tagList.filter((t) => t !== tag);
+  }
+
+  public setPreview() {
+    if (this.preview) {
+      this.preview = false;
+    } else {
+      (<any>Object).assign(this.article, this.formGroup.value);
+      this.preview = true;
+    }
   }
 
   private initFormGroup(): void {
