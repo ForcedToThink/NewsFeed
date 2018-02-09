@@ -4,8 +4,8 @@
         <h2>{{profile.username}}</h2>
         <span class="bio">{{profile.bio}}</span>
         <div class="action-panel right">
-            <a class="btn btn-sm btn-outline-primary" [routerLink]="['/settings']" [hidden]="!isUser">Edit profile settings</a>
-            <button class="btn btn-sm btn-outline-primary" [hidden]="isUser" [disabled]="isSubmitting" (click)="followUser($event)">{{getFollowButtonLabel()}}</button>
+            <a class="btn btn-sm btn-outline-primary" [routerLink]="['/settings']" [hidden]="!isUser"><span class="ion-gear-a">&nbsp;</span>Edit profile settings</a>
+            <button class="btn btn-sm btn-outline-primary" [hidden]="isUser" [disabled]="isSubmitting" (click)="followUser($event)"><span class="ion-plus-round">&nbsp;</span>{{getFollowButtonLabel()}}</button>
         </div>
     </div>
     <div class="content">

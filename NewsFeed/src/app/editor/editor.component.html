@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <input #tag type="text" [formControl]="tagField" class="form-control" (keyup.enter)="addTag(tag.value)" name="tagList " placeholder="Enter tags ">
                 <span class="tag tag-pill tag-default" *ngFor="let t of article.tagList">
-                  <span class="tag-button" (click)="removeTag(t)">X</span>{{t}}
+                  <span class="ion-close-round tag-button" (click)="removeTag(t)"></span>{{t}}
                 </span>
             </div>
         </div>

@@ -163,8 +163,7 @@ form.narrow {
 
 .tag-button {
     padding-right: .35rem;
-    font-weight: bold;
-    font-variant: small-caps;
+    cursor: pointer;
 }
 
 .article-meta img {

@@ -9,8 +9,8 @@
                 <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
                 <span class="date">{{article.createdAt | date:'longDate'}}</span>
             </div>
-            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()">Edit article</button>
-            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()">Delete article</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
         </div>
     </div>
     <div class="content">
@@ -26,8 +26,8 @@
                 <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
                 <span class="date">{{article.createdAt | date:'longDate'}}</span>
             </div>
-            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()">Edit article</button>
-            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()">Delete article</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
         </div>
     </div>
 </section>
