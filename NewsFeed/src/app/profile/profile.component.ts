@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../shared/models';
 import { UserService } from '../shared/services';
-import { ProfileService } from '../shared/services';
+import { ProfileService, ArticleService } from '../shared/services';
 
 @Component({
   selector: 'app-profile-page',
@@ -17,7 +17,8 @@ export class ProfileComponent implements OnInit {
   constructor (
     private route: ActivatedRoute,
     private userService: UserService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private articleService: ArticleService
   ) {}
 
   ngOnInit(): void {

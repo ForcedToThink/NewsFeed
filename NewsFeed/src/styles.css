@@ -198,7 +198,7 @@ form.narrow {
     margin-bottom: 1.5rem;
 }
 
-.article-preview {
+.editor-preview {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -223,4 +223,109 @@ form.narrow {
     font-size: .7rem !important;
     line-height: 1.5 !important;
     border-radius: .2rem !important;
+}
+
+.article-preview {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.article-meta {
+    padding-bottom: .5rem;
+}
+
+.preview-link {
+    color: #000;
+}
+
+.preview-link:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.preview-link>h3 {
+    font-weight: bold;
+}
+
+.preview-link>p {
+    color: rgba(0, 0, 0, .6);
+}
+
+.preview-link>span {
+    color: rgba(0, 0, 0, .2);
+    font-size: .8rem;
+}
+
+.tag-list {
+    text-align: right;
+}
+
+.tag-outline-default {
+    background: none;
+    color: #818a91!important;
+    border: 1px solid #818a91;
+}
+
+.tab-panel {
+    margin-bottom: -1px;
+}
+
+.tab-btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.tab-btn:focus,
+.tab-btn:hover {
+    text-decoration: none
+}
+
+.tab-btn.focus,
+.tab-btn:focus {
+    outline: 0;
+}
+
+.tab-btn.disabled,
+.tab-btn:disabled {
+    opacity: .65
+}
+
+.tab-btn-default {
+    color: rgba(0, 0, 0, .4);
+}
+
+.tab-btn-default:hover {
+    color: rgba(0, 0, 0, .6);
+}
+
+.tab-btn-default:not([href]):not([tabindex]) {
+    color: rgba(0, 0, 0, .4);
+}
+
+.tab-btn-active {
+    border-bottom: 3px solid #007bff;
+    color: #007bff;
+}
+
+.tab-btn-active:hover {
+    color: #007bff;
+}
+
+.tab-btn-active:not([href]):not([tabindex]) {
+    color: #007bff;
+}
+
+.tab-btn-active:not([href]):not([tabindex]):hover {
+    color: #007bff;
 }

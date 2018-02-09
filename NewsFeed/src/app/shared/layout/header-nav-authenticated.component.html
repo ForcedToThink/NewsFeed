@@ -4,10 +4,10 @@
             <a class="app-nav-link" routerLink="/">Home</a>
         </li>
         <li class="app-nav-item">
-            <a class="app-nav-link" routerLink="editor">New Article</a>
+            <a class="app-nav-link" routerLink="editor"><i class="ion-compose">&nbsp;</i>New Article</a>
         </li>
         <li class="app-nav-item">
-            <a class="app-nav-link" routerLink="settings">Settings</a>
+            <a class="app-nav-link" routerLink="settings"><i class="ion-gear-a">&nbsp;</i>Settings</a>
         </li>
         <li class="app-nav-item">
             <a class="app-nav-link" [routerLink]="['/profile', currentUser.username]">My Profile</a>
@@ -16,7 +16,7 @@
 
     <ul class="app-navbar-nav pull-xs-right">
         <li class="app-nav-item">
-            <a class="app-nav-link" (click)="logout($event)"><span class="glyphicon glyphicon-off"></span>Sign out</a>
+            <a class="app-nav-link" (click)="logout($event)"><span class="ion-power">&nbsp;</span>Sign out</a>
         </li>
     </ul>
 </div>

@@ -1,0 +1,19 @@
+<div class="article-preview">
+    <div class="article-meta">
+        <a [routerLink]="['/profile', article.author.username]">
+            <img [src]="article.author.image">
+        </a>
+        <div class="info">
+            <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
+            <span class="date">{{article.createdAt | date:'longDate'}}</span>
+        </div>
+    </div>
+    <a [routerLink]="['/article', article.slug]" div class="preview-link">
+        <h3>{{article.title}}</h3>
+        <p>{{article.description}}</p>
+        <span>Read more...</span>
+    </a>
+    <div class="tag-list">
+        <span class="tag tag-pill tag-outline-default" *ngFor="let t of article.tagList">{{t}}</span>
+    </div>
+</div>

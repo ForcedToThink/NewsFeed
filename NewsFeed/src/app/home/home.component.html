@@ -7,18 +7,11 @@
     <div class="content">
         <div class="row">
             <div class="col-md-9">
-                <ngb-tabset type="pills">
-                    <ngb-tab title="Your Feed">
-                        <ng-template ngbTabContent>
-                            Your feed
-                        </ng-template>
-                    </ngb-tab>
-                    <ngb-tab title="Global Feeds">
-                        <ng-template ngbTabContent>
-                            Global feeds
-                        </ng-template>
-                    </ngb-tab>
-                </ngb-tabset>
+                <div class="tab-panel">
+                    <a class="tab-btn tab-btn-default" *appShowAuthed="true" (click)="setListType('feed')" [ngClass]="{'tab-btn-active': config.type === 'feed'}">Your Feed</a>
+                    <a class="tab-btn tab-btn-default" (click)="setListType('all')" [ngClass]="{'tab-btn-active': config.type === 'all'}">Global Feed</a>
+                </div>
+                <app-article-list [config]="config"></app-article-list>
             </div>
             <div class="col-md-3">
                 <p>Popular Tags</p>

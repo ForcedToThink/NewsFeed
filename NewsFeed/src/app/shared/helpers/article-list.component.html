@@ -1,0 +1,4 @@
+<app-article-preview *ngFor="let a of articles" [article]="a"></app-article-preview>
+
+<div class="article-preview" [hidden]="!loading">Loading aricles...</div>
+<div class="article-preview" [hidden]="loading || articles.length > 0">No articles yet...</div>

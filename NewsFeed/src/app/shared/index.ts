@@ -3,3 +3,4 @@ export * from './layout';
 export * from './services';
 export * from './models';
 export * from './errors-list.component';
+export * from './helpers';
