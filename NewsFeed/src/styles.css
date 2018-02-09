@@ -45,11 +45,20 @@ html {
 }
 
 .app-navbar-nav .app-nav-link {
-    color: rgba(255, 255, 255, 1)!important;
+    color: rgba(255, 255, 255, .8);
 }
 
 .app-navbar-nav .app-nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-navbar-nav .app-nav-link:not([href]):not([tabindex]) {
+    color: rgba(255, 255, 255, .8);
+}
+
+.app-nav-link-active {
+    color: rgba(255, 255, 255, 1)!important;
+    font-weight: bold;
 }
 
 .app-nav-item {
@@ -65,6 +74,13 @@ html {
 .app-nav-link:hover {
     text-decoration: none;
     cursor: pointer;
+}
+
+.app-nav-link>img {
+    height: 26px;
+    width: 26px;
+    float: left;
+    border-radius: 50px;
 }
 
 .pull-xs-right {
@@ -141,7 +157,7 @@ form.narrow {
 
 .tag {
     color: #fff !important;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     white-space: nowrap;
@@ -164,6 +180,11 @@ form.narrow {
 .tag-button {
     padding-right: .35rem;
     cursor: pointer;
+}
+
+.article-meta {
+    position: relative;
+    width: 100%;
 }
 
 .article-meta img {
@@ -214,6 +235,11 @@ form.narrow {
 
 .article-preview-button {
     min-width: 50px;
+}
+
+.pull-right {
+    position: relative;
+    float: right;
 }
 
 .btn-xs,

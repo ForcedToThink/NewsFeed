@@ -9,14 +9,20 @@
                 <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
                 <span class="date">{{article.createdAt | date:'longDate'}}</span>
             </div>
-            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
-            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
+            <div class="info" *ngIf="isAuthor">
+                <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
+            </div>
+            <div class="info" *ngIf="!isAuthor">
+                <button class="btn btn-sm btn-outline-primary" [disabled]="isSubmitting" (click)="follow()"><span class="ion-plus-round">&nbsp;</span>{{getButtonLabel('follow')}}</button>
+                <button class="btn btn-sm btn-outline-success" [disabled]="isSubmitting" (click)="favorite()"><span class="ion-heart">&nbsp;</span>{{getButtonLabel('favorite')}}</button>
+            </div>
         </div>
     </div>
     <div class="content">
         <div class="article-body">
             <markdown>{{article.body}}</markdown>
-            <span class="tag tag-pill tag-default" *ngFor="let t of article.tagList">{{t}}</span>
+            <span class="tag tag-pill tag-outline-default" *ngFor="let t of article.tagList">{{t}}</span>
         </div>
         <div class="action-panel center article-meta">
             <a [routerLink]="['/profile', article.author.username]">
@@ -26,8 +32,14 @@
                 <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
                 <span class="date">{{article.createdAt | date:'longDate'}}</span>
             </div>
-            <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
-            <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
+            <div class="info" *ngIf="isAuthor">
+                <button class="btn btn-sm btn-outline-primary" (click)="editArticle()"><span class="ion-edit">&nbsp;</span>Edit article</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteArticle()"><span class="ion-trash-a">&nbsp;</span>Delete article</button>
+            </div>
+            <div class="info" *ngIf="!isAuthor">
+                <button class="btn btn-sm btn-outline-primary" [disabled]="isSubmitting" (click)="follow()"><span class="ion-plus-round">&nbsp;</span>{{getButtonLabel('follow')}}</button>
+                <button class="btn btn-sm btn-outline-success" [disabled]="isSubmitting" (click)="favorite()"><span class="ion-heart">&nbsp;</span>{{getButtonLabel('favorite')}}</button>
+            </div>
         </div>
     </div>
 </section>

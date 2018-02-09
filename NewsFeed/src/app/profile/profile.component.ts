@@ -37,22 +37,11 @@ export class ProfileComponent implements OnInit {
 
   public followUser(event) {
     this.isSubmitting = true;
-    this.profile.following = !this.profile.following;
-
-    if (this.profile.following) {
-      this.profileService.follow(this.profile.username)
-        .subscribe(
-          (data) => this.profile = data,
-          (err) => this.isSubmitting = false,
-          () => this.isSubmitting = false
-        );
-    } else {
-      this.profileService.unfollow(this.profile.username)
-        .subscribe(
-          (data) => this.profile = data,
-          (err) => this.isSubmitting = false,
-          () => this.isSubmitting = false
-        );
-    }
+    this.profileService.setFollow(this.profile.username, this.profile.following)
+      .subscribe(
+        (data) => this.profile = data,
+        (err) => this.isSubmitting = false,
+        () => this.isSubmitting = false
+      );
   }
 }

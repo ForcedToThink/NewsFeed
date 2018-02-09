@@ -1,13 +1,10 @@
 <div class="app-navbar-row">
-    <ul class="app-navbar-nav mr-auto">
+    <ul class="app-navbar-nav ml-auto">
         <li class="app-nav-item">
-            <a class="app-nav-link" routerLink="/">Home</a>
+            <a class="app-nav-link" routerLink="/" routerLinkActive="app-nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
-    </ul>
-
-    <ul class="app-navbar-nav pull-xs-right">
         <li class="app-nav-item">
-            <a class="app-nav-link" routerLink="auth"><span class="ion-log-in">&nbsp;</span>Sign in</a>
+            <a class="app-nav-link" routerLink="auth" routerLinkActive="app-nav-link-active" [routerLinkActiveOptions]="{ exact: true }"><span class="ion-log-in">&nbsp;</span>Sign in</a>
         </li>
     </ul>
 </div>

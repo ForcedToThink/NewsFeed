@@ -52,4 +52,20 @@ export class ArticleService {
     return this.api.get(url, searchParams)
       .map((data) => data);
   }
+
+  public setFavorite(slug: string, isFavorite: boolean): Observable<Article> {
+    return !isFavorite
+      ? this.favorite(slug)
+      : this.unfavorite(slug);
+  }
+
+  private favorite(slug: string): Observable<Article> {
+    return this.api.post(`/articles/${slug}/favorite`)
+        .map((data) => data.article);
+  }
+
+  private unfavorite(slug: string): Observable<Article> {
+    return this.api.delete(`/articles/${slug}/favorite`)
+        .map((data) => data.article);
+  }
 }

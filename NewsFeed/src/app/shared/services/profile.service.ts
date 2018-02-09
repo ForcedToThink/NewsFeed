@@ -16,12 +16,18 @@ export class ProfileService {
     .map((data) => data.profile);
   }
 
-  public follow(username: string): Observable<Profile> {
+  public setFollow(username: string, isFollowed: boolean): Observable<Profile> {
+    return !isFollowed
+      ? this.follow(username)
+      : this.unfollow(username);
+  }
+
+  private follow(username: string): Observable<Profile> {
     return this.api.post(`/profiles/${username}/follow`)
       .map((data) => data.profile);
   }
 
-  public unfollow(username: string): Observable<Profile> {
+  private unfollow(username: string): Observable<Profile> {
     return this.api.delete(`/profiles/${username}/follow`)
       .map((data) => data.profile);
   }
