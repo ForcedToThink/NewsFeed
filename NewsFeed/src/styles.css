@@ -354,3 +354,11 @@ form.narrow {
 .tab-btn-active:not([href]):not([tabindex]):hover {
     color: #007bff;
 }
+
+.paging-panel {
+    text-align: center;
+}
+
+.paging-btn {
+    min-width: 44px;
+}

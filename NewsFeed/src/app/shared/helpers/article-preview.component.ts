@@ -24,10 +24,10 @@ export class ArticlePreviewComponent {
   public favorite(): void {
     this.isSubmitting = true;
     const _thisComponent = this;
-    this.articleService.setFavorite(this.article.slug, this.article.favorited)
+    this.articleService.setFavorite(this._article.slug, this._article.favorited)
       .subscribe(
         (data) => {
-          _thisComponent.article = data;
+          _thisComponent._article = data;
           _thisComponent.isSubmitting = false;
         },
         (error) => _thisComponent.isSubmitting = false

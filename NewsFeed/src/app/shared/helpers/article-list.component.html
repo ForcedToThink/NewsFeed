@@ -2,3 +2,5 @@
 
 <div class="article-preview" [hidden]="!loading">Loading aricles...</div>
 <div class="article-preview" [hidden]="loading || articles.length > 0">No articles yet...</div>
+
+<app-article-list-paging (offsetChanged)="setNewOffset($event)" [pagingConfig]="pagingConfig"></app-article-list-paging>

@@ -5,13 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { MarkdownModule } from 'angular2-markdown';
-import { ArticleListComponent, ArticlePreviewComponent } from './helpers';
+import { ArticleListComponent, ArticlePreviewComponent, ArticleListPagingComponent } from './helpers';
+
 
 @NgModule({
   declarations: [
     ShowAuthedDirective,
     ArticleListComponent,
-    ArticlePreviewComponent
+    ArticlePreviewComponent,
+    ArticleListPagingComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { ArticleListComponent, ArticlePreviewComponent } from './helpers';
     ShowAuthedDirective,
     MarkdownModule,
     ArticleListComponent,
-    ArticlePreviewComponent
+    ArticlePreviewComponent,
+    ArticleListPagingComponent
   ],
   providers: [],
 })

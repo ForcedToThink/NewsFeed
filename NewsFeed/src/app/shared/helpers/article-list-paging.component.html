@@ -1,0 +1,9 @@
+<div class="paging-panel" *ngIf="lastPage !== 0">
+    <div class="btn-group">
+        <button class="btn btn-primary paging-btn" [disabled]="!canGoFirst()" (click)="changeOffset(0)"><span class="ion-ios-skipbackward"></span></button>
+        <button class="btn btn-primary paging-btn" [disabled]="!canGoBack()" (click)="changeOffset(offset - 1)"><span class="ion-arrow-left-b"></span></button>
+        <button class="btn btn-primary paging-btn" [disabled]="!canGoToPage(p)" (click)="changeOffset(p)" *ngFor="let p of pages">{{p + 1}}</button>
+        <button class="btn btn-primary paging-btn" [disabled]="!canGoForward()" (click)="changeOffset(offset + 1)"><span class="ion-arrow-right-b"></span></button>
+        <button class="btn btn-primary paging-btn" [disabled]="!canGoLast()" (click)="changeOffset(lastPage)"><span class="ion-ios-skipforward"></span></button>
+    </div>
+</div>
