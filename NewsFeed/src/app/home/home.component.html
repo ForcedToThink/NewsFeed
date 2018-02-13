@@ -9,12 +9,17 @@
             <div class="col-md-9">
                 <div class="tab-panel">
                     <a class="tab-btn tab-btn-default" *appShowAuthed="true" (click)="setListType('feed')" [ngClass]="{'tab-btn-active': config.type === 'feed'}">Your Feed</a>
-                    <a class="tab-btn tab-btn-default" (click)="setListType('all')" [ngClass]="{'tab-btn-active': config.type === 'all'}">Global Feed</a>
+                    <a class="tab-btn tab-btn-default" (click)="setListType('all')" [ngClass]="{'tab-btn-active': config.type === 'all' && !config.filters.tag}">Global Feed</a>
+                    <a class="tab-btn tab-btn-default tab-btn-active" (click)="setListType(selectedTag)" [hidden]="!config.filters.tag"><span class="ion-pound">&nbsp;</span>{{config.filters.tag}}</a>
                 </div>
                 <app-article-list [config]="config"></app-article-list>
             </div>
             <div class="col-md-3">
-                <p>Popular Tags</p>
+
+                <div class="tag-list-panel">
+                    <p>Popular Tags</p>
+                    <span class="tag tag-pill tag-default" (click)="setListType('all', t)" *ngFor="let t of tags">{{t}}</span>
+                </div>
             </div>
         </div>
     </div>

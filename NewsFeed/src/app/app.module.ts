@@ -15,7 +15,8 @@ import {
   AuthGuard,
   SessionService,
   ProfileService,
-  ArticleService
+  ArticleService,
+  TagsService
 } from './shared';
 
 import { AppComponent } from './app.component';
@@ -70,7 +71,8 @@ function populateService(userService: UserService) {
       multi: true
     },
     ProfileService,
-    ArticleService
+    ArticleService,
+    TagsService
   ],
   bootstrap: [AppComponent]
 })

@@ -45,6 +45,7 @@ export class ApiService {
   }
 
   public get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
+    path = path.startsWith('/') ? path : `/${path}`;
     const methodUrl = `${api_url}${path}`;
     const headers = { headers: this.setHeaders(), search: params };
 

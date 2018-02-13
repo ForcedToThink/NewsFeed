@@ -362,3 +362,13 @@ form.narrow {
 .paging-btn {
     min-width: 44px;
 }
+
+.tag-list-panel {
+    padding: .75rem;
+    background-color: #eee;
+    border-radius: 6px;
+}
+
+.tag-list-panel>.tag {
+    cursor: pointer;
+}
